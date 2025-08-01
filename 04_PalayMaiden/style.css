@@ -1,0 +1,145 @@
+/* ────────── RESET ────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html,body { width:100%; height:100%; overflow:hidden; }
+
+/* ────────── PAINTING STACK (default view) ────────── */
+#canvas-png{
+  position:fixed;
+  inset:0;                          /* top:0 right:0 bottom:0 left:0 */
+  width:100vw;
+  height:100vh;
+  background:#000;                  /* fallback while images load */
+  z-index:1;                        /* base layer */
+}
+
+/* ────────── LIVE CAMERA / CANVAS (debug view) ────────── */
+.video-wrapper{
+  width:100%;
+  height:100%;
+  background:#000;
+  overflow:hidden;
+  z-index:2;
+  pointer-events:none;
+  display:none;                  /* shown when debug ON (C key) */
+
+  /* NEW → stack children vertically */
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+}
+
+/* each element takes half the wrapper height */
+.video-wrapper video,
+.video-wrapper canvas{
+    flex:1 0 50%;                /* 50% height each */
+  width:640px;
+  object-fit:cover;
+}
+
+
+/* ────────── YOLO BOXES ────────── */
+#detection-container{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  z-index:3;
+  pointer-events:none;
+  display:none;                     /* debug only */
+}
+
+.detection-box{
+  position:absolute;
+  border:2px solid #38bdf8;         /* default cyan */
+  background:rgba(56,189,248,.15);
+}
+
+.detection-label{
+  position:absolute;
+  top:-22px;
+  left:0;
+  background:#38bdf8;
+  color:#fff;
+  padding:2px 6px;
+  font-size:.75rem;
+  font-family:Segoe UI,Tahoma,sans-serif;
+  border-radius:3px;
+  white-space:nowrap;
+}
+
+.pulse{
+  animation:pulse 1s infinite;
+  border-color:#ef4444;
+  background:rgba(239,68,68,.20);
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5);}
+  50%    {box-shadow:0 0 0 6px rgba(239,68,68,0);}
+}
+
+/* ────────── STATUS PILL ────────── */
+.status{
+  position:fixed;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:4;
+}
+
+.status-indicator{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:20px;
+  font:600 .9rem/1 Segoe UI,Tahoma,sans-serif;
+  color:#fff;
+}
+.status-waiting    {background:#f39c12;}
+.status-connecting {background:#3498db; animation:pulse-pill 1.5s infinite;}
+.status-detecting  {background:#27ae60; animation:pulse-pill 1.5s infinite;}
+.status-error      {background:#e74c3c;}
+
+@keyframes pulse-pill{
+  0%,100%{opacity:1;}
+  50%    {opacity:.75;}
+}
+
+/* spinner */
+.loading{
+  width:16px;height:16px;
+  border:2px solid #fff;
+  border-top-color:transparent;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ────────── INVISIBLE CAMERA-CYCLE HOTSPOT ────────── */
+#cycleBtn{
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  width:40px;
+  height:40px;
+  opacity:0;                       /* invisible but clickable */
+  border:none;
+  background:none;
+  z-index:5;
+  cursor:pointer;
+}
+/* invisible bottom-right square for debug toggle */
+#debugBtn{
+  position:fixed;
+  bottom:10px;
+  right:10px;            /* ⬅ opposite corner */
+  width:40px;
+  height:40px;
+  opacity:0;             /* invisible but clickable */
+  border:none;
+  background:none;
+  z-index:5;
+  cursor:pointer;
+}
+

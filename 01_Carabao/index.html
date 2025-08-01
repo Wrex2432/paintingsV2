@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Carabao Painting</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 1️⃣  Painting frames (shown first / default) -->
+  <div id="canvas-png"></div>
+
+  <!-- 2️⃣  Live camera & YOLO-annotated canvas (debug view) -->
+  <div class="video-wrapper">
+    <video  id="video" autoplay muted playsinline></video>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- 3️⃣  Detection boxes overlay -->
+  <div id="detection-container"></div>
+
+  <!-- 4️⃣  Invisible hotspots -->
+    <button id="cycleBtn" title="Switch camera"></button>
+    <button id="debugBtn"  title="Toggle debug"></button>
+
+
+  <!-- 5️⃣  Status pill (bottom-center) -->
+  <div class="status">
+    <div id="statusIndicator" class="status-indicator status-waiting">
+      <div class="loading"></div>
+        Initializing…
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

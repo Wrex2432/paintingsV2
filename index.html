@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Hub</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: consolas;}
+
+    body{
+      height: 100vh;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: start;
+      gap: 1rem;
+      flex-flow: column nowrap;
+      background: black;
+      color: whitesmoke;
+    }
+    ul {
+      height: 50%;
+      max-width: 800px;
+      /* border: 2px solid red; */
+      display: grid;
+      text-align: center;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto); 
+      gap: 2rem; 
+    }
+    li {
+      list-style-type: none;
+      transition: ease-in-out 100ms;
+    }
+    li:hover{
+      transform: scale(1.06);
+    }
+    #paintingButton{
+      height: 200px;
+      grid-column: span 2;
+      grid-row: 2; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Pick a Painting</h1>
+  <ul>
+    <!-- <li><a href="./01_Carabao/">Carabao Painting</a></li>
+    <li><a href="./02_FruitSeller/">Fruit Seller</a></li>
+    <li><a href="./03_Lavandera/">Lavandera</a></li>
+    <li><a href="./04_PalayMaiden/">Palay Maiden</a></li>
+    <li><a href="./05_RiceField/">Rice Field</a></li> -->
+
+    <li>
+      <p>Carabao Painting</p>
+      <a href="./01_Carabao/">
+        <img 
+          id="paintingButton" 
+          src="./01_Carabao/assets/Carabao Painting/Static/CarabaoPainting.jpg" 
+          alt="Carabao Painting"
+        >
+      </a>
+    </li>
+    <li>
+      <p>Fruit Seller</p>
+      <a href="./02_FruitSeller/">
+        <img 
+          id="paintingButton" 
+          src="./02_FruitSeller/assets/Fruit Seller/Static/Fruit Seller.jpg" 
+          alt="Fruit Seller"
+        >
+      </a>
+    </li>
+    <li>
+      <p>Lavandera</p>
+      <a href="./03_Lavandera/">
+        <img 
+          id="paintingButton" 
+          src="./03_Lavandera/assets/Lavandera/Static/Lavandera.jpg" 
+          alt="Lavandera"
+        >
+      </a>
+    </li>
+    <li>
+      <p>Palay Maiden</p>
+      <a href="./04_PalayMaiden/">
+        <img 
+          id="paintingButton" 
+          src="./04_PalayMaiden/assets/Palay Maiden/Static/Palay Maiden.jpg" 
+          alt="Palay Maiden"
+        >
+      </a>
+    </li>
+    <li>
+      <p>Rice Field</p>
+      <a href="./05_RiceField/">
+        <img 
+          id="paintingButton" 
+          src="./05_RiceField/assets/Rice Field/Static/RiceField.jpg" 
+          alt="Rice Field"
+        >
+      </a>
+    </li>
+
+    
+    
+
+
+  </ul>
+</body>
+</html>
