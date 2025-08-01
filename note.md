@@ -5,6 +5,7 @@ python backend.py
 
 const API_URL          = "http://localhost:8000";
 const API_URL          = "https://phone-backend.onrender.com";
+const API_URL          = "https://phonedetection-backend.onrender.com/";
 
 const scene             = "Carabao Painting";
 const filePrefix        = "CarabaoPainting";

@@ -6,7 +6,7 @@
 /* ──────────────────────────────────────────────────────────────────
    1. GLOBAL CONFIGURATION
    ──────────────────────────────────────────────────────────────────*/
-const API_URL          = "https://phone-backend.onrender.com";
+const API_URL          = "https://phonedetection-backend.onrender.com/";
 const CAMERA_POLL_MS   = 2500;
 const DETECT_INTERVAL  = 300;
 const PHONE_TIMEOUT_MS = 3000;
